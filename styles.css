@@ -1,0 +1,116 @@
+:root{
+  --cream:#F7EFE2;
+  --taupe:#DDCDBD;
+  --mist:#E5EDF0;
+  --bluegrey:#9FADB6;
+  --brown:#A49284;
+  --ink:#3f3a35;
+  --paper:#fbfaf7;
+  --line:#d8d0c7;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(80,75,70,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,75,70,.045) 1px,transparent 1px),
+    #fbfaf7;
+  background-size:22px 22px;
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Avenir Next","Helvetica Neue",Arial,sans-serif;
+}
+button{font:inherit}
+.app-shell{width:min(940px,100%);margin:0 auto;padding:22px 18px 42px}
+.hero{text-align:center;padding:18px 0 20px}
+.hero-brush{
+  padding:28px 22px 26px;
+  background:linear-gradient(2deg,rgba(221,205,189,.96),rgba(221,205,189,.9));
+  border-radius:22px 8px 28px 10px;
+  box-shadow:0 12px 30px rgba(80,65,50,.08);
+  position:relative;
+  overflow:hidden;
+}
+.hero-brush:before,.hero-brush:after{
+  content:"";position:absolute;left:-5%;right:-5%;height:18px;background:rgba(255,255,255,.28);
+  transform:rotate(-1deg);top:18px;filter:blur(1px)
+}
+.hero-brush:after{top:auto;bottom:15px;transform:rotate(1deg)}
+.eyebrow{font-size:12px;letter-spacing:.18em;font-weight:700;opacity:.65}
+h1{font-family:"Brush Script MT","Snell Roundhand",cursive;font-size:52px;line-height:1;margin:10px 0 7px;font-weight:500}
+h1 span{font-family:inherit;font-size:32px}
+.hero p{margin:0 auto;max-width:520px;font-size:14px;opacity:.78}
+.upload-card,.legend-card,.calendar-card{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(130,115,100,.15);
+  border-radius:26px;
+  padding:18px;
+  box-shadow:0 14px 40px rgba(80,65,50,.07);
+  margin-top:14px;
+}
+.upload-button{
+  width:100%;display:flex;align-items:center;gap:14px;text-align:left;
+  border:1px dashed #b9aa9a;border-radius:20px;padding:16px;
+  background:var(--cream);color:var(--ink);cursor:pointer;
+}
+.upload-button:hover{filter:brightness(.985)}
+.upload-icon{font-size:28px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:white}
+.upload-button strong{display:block;font-size:16px}
+.upload-button small{display:block;margin-top:3px;opacity:.62}
+.progress{margin-top:13px}.hidden{display:none!important}
+.progress-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}
+.progress-track{height:8px;background:#eee7df;border-radius:99px;overflow:hidden}
+#progressBar{height:100%;width:0;background:var(--bluegrey);transition:width .25s}
+.error{margin-top:12px;padding:11px 13px;border-radius:14px;background:#f3dfdc;font-size:13px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}
+h2{font-size:22px;margin:5px 0 0}
+.legend-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.legend-item{min-height:76px;border-radius:16px;padding:11px;display:flex;flex-direction:column;justify-content:space-between;font-size:12px;border:1px solid rgba(80,65,50,.06)}
+.legend-item i{width:27px;height:27px;border-radius:9px;border:1px solid rgba(0,0,0,.06)}
+.calendar-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+.calendar-title{text-align:center;flex:1}.calendar-title h2{font-size:20px}
+.round-btn{width:42px;height:42px;border:0;border-radius:14px;background:var(--cream);font-size:28px;cursor:pointer;color:var(--ink)}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day{min-height:180px;border:1px solid #e2ddd6;border-radius:17px;padding:9px;background:#fff}
+.day.today{outline:2px solid var(--bluegrey)}
+.day-head{font-size:11px;opacity:.62;font-weight:700;text-transform:uppercase}
+.day-num{font-size:20px;font-weight:700;margin:2px 0 8px}
+.shift{
+  border-radius:13px;padding:9px;margin-top:7px;min-height:62px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border:1px solid rgba(70,60,50,.08)
+}
+.shift-time{font-size:17px;font-weight:800}
+.shift-end{font-size:11px;opacity:.65}
+.empty-state{display:block}.empty-inner{text-align:center;padding:55px 20px}
+.empty-star{font-size:42px}.empty-inner h3{margin:10px 0 5px}.empty-inner p{opacity:.6;margin:0 auto;max-width:360px;font-size:13px}
+.actions{display:flex;gap:10px;margin-top:14px}
+.secondary-button{flex:1;border:0;border-radius:17px;padding:14px;background:var(--brown);color:white;font-weight:700;cursor:pointer}
+.text-button{border:0;background:transparent;padding:14px;color:#766a60;cursor:pointer}
+footer{display:flex;justify-content:space-between;font-size:11px;opacity:.5;padding:24px 4px}
+@media(max-width:720px){
+  .app-shell{padding:12px 12px 30px}
+  h1{font-size:44px}
+  .legend-grid{grid-template-columns:repeat(2,1fr)}
+  .calendar-grid{grid-template-columns:1fr}
+  .day{min-height:auto}
+  .day:not(.has-shift){display:none}
+  .actions{flex-direction:column}
+}
+
+.section-note{margin:.35rem 0 0;color:#746b63;font-size:.88rem;line-height:1.45;max-width:680px}
+.edit-card{margin-top:1rem;padding:1.1rem;background:rgba(255,255,255,.55);border:1px solid rgba(164,146,132,.28);border-radius:24px}
+.shift-list{display:grid;gap:.7rem;margin-top:1rem}
+.edit-row{display:grid;grid-template-columns:28px minmax(120px,1fr) minmax(100px,.7fr) minmax(80px,.55fr) auto;gap:.6rem;align-items:end;padding:.8rem;background:#fffaf3;border-radius:16px;border:1px solid rgba(164,146,132,.18)}
+.edit-index{font-weight:700;color:#9FADB6;padding-bottom:.7rem;text-align:center}
+.edit-row label{font-size:.72rem;color:#746b63;display:grid;gap:.3rem}
+.edit-row input{box-sizing:border-box;width:100%;min-height:42px;border:1px solid #d8cec3;border-radius:11px;background:#fff;padding:.55rem;font:inherit;color:#3f3a35}
+.delete-shift,.edit-shift{border:0;border-radius:10px;cursor:pointer;font:inherit}
+.delete-shift{min-height:42px;padding:.55rem .75rem;background:#efe5dc;color:#765f50}
+.edit-shift{margin-top:.45rem;padding:.3rem .55rem;background:rgba(255,255,255,.62);color:inherit;font-size:.72rem}
+.edit-empty{padding:1rem;color:#7b7169;background:#fffaf3;border-radius:14px;font-size:.9rem}
+@media(max-width:650px){
+  .edit-row{grid-template-columns:24px 1fr 1fr;align-items:end}
+  .edit-row label:nth-of-type(3){grid-column:2}
+  .delete-shift{grid-column:3;grid-row:2}
+}

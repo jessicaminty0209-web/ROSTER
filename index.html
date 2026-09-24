@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F7EFE2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="TSB Roster">
+  <title>TSB Roster⭐️</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-brush">
+        <div class="eyebrow">YOUR WORK SCHEDULE</div>
+        <h1>TSB Roster<span>⭐️</span></h1>
+        <p>Upload your roster screenshots and let your calendar build itself.</p>
+      </div>
+    </header>
+
+    <section class="upload-card">
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      <button class="upload-button" id="uploadButton">
+        <span class="upload-icon">＋</span>
+        <span>
+          <strong>Add roster screenshots</strong>
+          <small>Choose one or multiple screenshots</small>
+        </span>
+      </button>
+      <div id="progress" class="progress hidden">
+        <div class="progress-top"><span id="progressLabel">Reading roster…</span><span id="progressPercent">0%</span></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </div>
+      <div id="error" class="error hidden"></div>
+    </section>
+
+    <section class="legend-card">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">SHIFT COLOURS</div>
+          <h2>Start-time palette</h2>
+        </div>
+      </div>
+      <div class="legend-grid">
+        <div class="legend-item"><i style="background:#F7EFE2"></i><span>06:00–10:00</span></div>
+        <div class="legend-item"><i style="background:#DDCDBD"></i><span>12:00–14:00</span></div>
+        <div class="legend-item"><i style="background:#E5EDF0"></i><span>16:00–17:00</span></div>
+        <div class="legend-item"><i style="background:#9FADB6"></i><span>18:00–19:00</span></div>
+        <div class="legend-item"><i style="background:#A49284"></i><span>20:00–22:00</span></div>
+      </div>
+    </section>
+
+    <section class="calendar-card">
+      <div class="calendar-toolbar">
+        <button id="prevWeek" class="round-btn" aria-label="Previous week">‹</button>
+        <div class="calendar-title">
+          <div class="eyebrow">UPCOMING</div>
+          <h2 id="weekLabel">Your shifts</h2>
+        </div>
+        <button id="nextWeek" class="round-btn" aria-label="Next week">›</button>
+      </div>
+      <div id="calendar" class="calendar-grid empty-state">
+        <div class="empty-inner">
+          <div class="empty-star">⭐️</div>
+          <h3>No shifts yet</h3>
+          <p>Upload your TSB roster screenshots above and they’ll appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="edit-card">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">CHECK & AMEND</div>
+          <h2>Edit your shifts</h2>
+          <p class="section-note">OCR can occasionally get a date or time wrong. Change the date, start time or hours here — every shift defaults to 8 hours.</p>
+        </div>
+      </div>
+      <div id="shiftList" class="shift-list"></div>
+    </section>
+
+    <section class="actions">
+      <button id="exportIcs" class="secondary-button">Export to Apple Calendar</button>
+      <button id="clearAll" class="text-button">Clear roster</button>
+    </section>
+
+    <footer>
+      <span>TSB Roster⭐️</span>
+      <span>Built for your iPhone</span>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="app.js"></script><script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{});}</script>
+</body>
+</html>
